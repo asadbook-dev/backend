@@ -44,8 +44,10 @@ const bootstrap = async () => {
     await mongoose
       .connect(process.env.DB_URL)
       .then(() => console.log("Connected DB"));
-    app.listen(process.env.PORT, () =>
-      console.log(`Listening on - http://localhost:${process.env.PORT} `)
+    app.listen(process.env.PORT ?? 8080, () =>
+      console.log(
+        `Listening on - http://localhost:${process.env.PORT ?? 8080} `
+      )
     );
   } catch (error) {
     console.log(`Error connecting with DB: ${error.message}`);
