@@ -1,0 +1,19 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backend application",
+  "main": "app.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [
+    "NodeJs",
+    "ExpressJs"
+  ],
+  "author": "asadbook-dev",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
