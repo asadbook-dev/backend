@@ -6,6 +6,7 @@ const fileUpload = require("express-fileupload");
 // Routes
 const postRoute = require("./routes/post.route");
 const requestTime = require("./middlewares/request-time");
+const authRoute = require("./routes/auth.route");
 
 const app = express();
 
@@ -15,7 +16,8 @@ app.use(express.static("static"));
 app.use(fileUpload({}));
 
 // Routes
-app.use(postRoute);
+app.use("/api/post", postRoute);
+app.use("/api/auth", authRoute);
 
 const PORT = process.env.PORT || 8080;
 
