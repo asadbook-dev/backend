@@ -10,6 +10,7 @@ const postRoute = require("./routes/post.route");
 const authRoute = require("./routes/auth.route");
 
 const requestTime = require("./middlewares/request-time");
+const errorMiddleware = require("./middlewares/error.middleware");
 
 const app = express();
 
@@ -22,6 +23,8 @@ app.use(cookieParser({}));
 // Routes
 app.use("/api/post", postRoute);
 app.use("/api/auth", authRoute);
+
+app.use(errorMiddleware);
 
 const PORT = process.env.PORT || 8080;
 
