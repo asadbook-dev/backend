@@ -18,7 +18,7 @@ class TokenService {
     if (existToken) {
       existToken.refreshToken = refreshToken;
       return existToken.save();
-    } 
+    }
 
     const token = await tokenModel.create({ user: userId, refreshToken });
     return token;

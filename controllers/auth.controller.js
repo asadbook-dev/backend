@@ -19,7 +19,7 @@ class AuthController {
     try {
       const userId = await req.params.id;
       await authService.activation(userId);
-      return res.json({ message: "User is activated" });
+      return res.redirect("https://sammi.ac");
     } catch (error) {
       console.log(error);
     }
