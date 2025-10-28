@@ -7,7 +7,7 @@ class PostService {
     const newPost = await postModel.create({
       ...post,
       picture: fileName,
-      author,
+      // author,
     });
     return newPost;
   }

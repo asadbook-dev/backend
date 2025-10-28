@@ -4,6 +4,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const fileUpload = require("express-fileupload");
 const cookieParser = require("cookie-parser");
+const cors = require("cors");
 
 // Routes
 const postRoute = require("./routes/post.route");
@@ -14,6 +15,12 @@ const errorMiddleware = require("./middlewares/error.middleware");
 
 const app = express();
 
+app.use(
+  cors({
+    credentials: true,
+    origin: process.env.CLIENT_URL,
+  })
+);
 app.use(requestTime);
 app.use(express.json());
 app.use(express.static("static"));

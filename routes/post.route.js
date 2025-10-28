@@ -7,7 +7,7 @@ const authorMiddleware = require("../middlewares/author.middleware");
 const router = expres.Router();
 
 router.get("/get-all", postController.getAll); // GET
-router.post("/create", authMiddleware, postController.create); // POST
+router.post("/create", postController.create); // POST
 router.delete(
   "/delete/:id",
   authMiddleware,
