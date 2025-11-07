@@ -10,12 +10,10 @@ import { Toaster } from './components/ui/sonner.tsx';
 const queryClient = new QueryClient()
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
-        <App />
-        <Toaster position='top-center' />
-      </BrowserRouter>
-    </QueryClientProvider>
-  </StrictMode>,
+  <QueryClientProvider client={queryClient}>
+    <BrowserRouter>
+      <App />
+      <Toaster position='top-center' />
+    </BrowserRouter>
+  </QueryClientProvider>
 )

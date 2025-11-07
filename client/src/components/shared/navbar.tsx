@@ -5,10 +5,11 @@ import { useCreatePost } from "@/hooks/use.create-post"
 import { authStore } from "@/store/auth.store"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "../ui/dropdown-menu"
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar"
+import { Loader2 } from "lucide-react"
 
 function Navbar() {
     const { onOpen } = useCreatePost()
-    const { isAuth, user } = authStore()
+    const { isAuth, user, isLoading } = authStore()
     return (
         <>
             <div className="w-full h-24 bg-gray-800 fixed inset-0">
@@ -17,12 +18,14 @@ function Navbar() {
                         <img src={'/logo.svg'} />
                         <p className="font-bold text-4xl text-white">Sammi</p>
                     </Link>
-                    <div className="flex gap-2 mr-2">
+                    <div className="flex gap-2 mr-2 items-center">
                         <Button className="rounded-full font-bold" size={"lg"} variant={"outline"} onClick={onOpen}>
                             Create post
                         </Button>
                         {
-                            isAuth ? (
+                            isLoading ? (
+                                <Loader2 className="animate-spin" />
+                            ) : isAuth ? (
                                 <DropdownMenu>
                                     <DropdownMenuTrigger asChild>
                                         <Avatar className="cursor-pointer">
